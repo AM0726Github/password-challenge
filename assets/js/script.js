@@ -23,7 +23,7 @@ var generatePassword = function(){
     case false:
       if(parseInt(passwordLength) < 8 || parseInt(passwordLength) > 128){
         window.alert("You need to provide a valid answer! Please try again.");
-        return generatePassword();
+        generatePassword();
       }
       break;
   }
