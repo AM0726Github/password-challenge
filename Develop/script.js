@@ -7,22 +7,51 @@ const lowerString = "abcdefghijklmnopqrstuvwxyz";
 
 
 var generatePassword = function(){
+  // each time when user will click button we need to reset passward
+  var password = "";
+  var passwordDemo = "";
 
-  // ask if yser would like to add special characters numbers or letters
-  var promptChar = window.confirm("Would you like to add any special characters to your password such as " + specialCharacters + " symbols Enter 'Yes' or 'No'");
-  if (promptChar === "" || promptChar === null) {
-    window.alert("You need to provide a valid answer! Please try again.");
-    return generatePassword();
+  // ask for password length
+  var passwordLength = window.prompt("Choose the length of password! enter length betwin 8 and 128");
+
+  //if entered not integer
+  switch(isNaN(passwordLength)){
+    case true:
+      window.alert("You need to provide a valid answer! Please try again.");
+      generatePassword();
+      break;
+    case false:
+      if(parseInt(passwordLength) < 8 || parseInt(passwordLength) > 128){
+        window.alert("You need to provide a valid answer! Please try again.");
+        return generatePassword();
+      }
+      break;
+  }
+  
+  // ask if user would like to add special characters numbers or letters
+  var promptChar = window.confirm("Would you like to add any special characters to your password such as " + specialCharacters + " symbols Enter 'OK' or 'Cancel'");
+  var promptNumb = window.confirm("Would you like to add any number to your password such as " + numbersString +" numbers Enter 'OK' or 'Cancel'");
+  var promptUpper = window.confirm("Would you like to add any uppercase latters to your password such as " + upperString + " latters Enter 'OK' or 'Cancel'");
+  var promptLower = window.confirm("Would you like to add any lowerercase latters to your password such as " + lowerString + " latters Enter 'OK' or 'Cancel'");
+  
+  // ask for at least one criteria
+  while(promptChar == false && promptNumb == false && promptUpper == false && promptLower == false){
+    window.alert("You need to accept at least one caracter");
+    var promptChar = window.confirm("Would you like to add any special characters to your password such as " + specialCharacters + " symbols Enter 'OK' or 'Cancel'");
+    var promptNumb = window.confirm("Would you like to add any number to your password such as " + numbersString +" numbers Enter 'OK' or 'Cancel'");
+    var promptUpper = window.confirm("Would you like to add any uppercase latters to your password such as " + upperString + " latters Enter 'OK' or 'Cancel'");
+    var promptLower = window.confirm("Would you like to add any lowerercase latters to your password such as " + lowerString + " latters Enter 'OK' or 'Cancel'");
+  };
+
+  // 
+
+  // generate random password by selected criteria
+  for(var i = 0 ; i < parseInt(passwordLength); i++){
+
   }
 
-  var promptNumb = window.prompt("Would you like to add any number to your password such as " + numbersString +" numbers Enter 'Yes' or 'No'");
-  var promptUpper = window.prompt("Would you like to add any uppercase latters to your password such as " + upperString + " latters Enter 'Yes' or 'No'");
-  var promptLower = window.prompt("Would you like to add any lowerercase latters to your password such as " + lowerString + " latters Enter 'Yes' or 'No'");
-
-
-
-
-  return specialCharacters;
+  // returning generated password 
+  return password;
 }
 
 
