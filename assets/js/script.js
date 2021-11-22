@@ -15,19 +15,11 @@ var generatePassword = function(){
   var passwordLength = window.prompt("Choose the length of password! enter length betwin 8 and 128");
 
   //if entered not integer
-  switch(isNaN(passwordLength)){
-    case true:
+  while(isNaN(passwordLength) == true  || parseInt(passwordLength) < 8 || parseInt(passwordLength) > 128 || passwordLength === ''){
       window.alert("You need to provide a valid answer! Please try again.");
-      generatePassword();
-      break;
-    case false:
-      if(parseInt(passwordLength) < 8 || parseInt(passwordLength) > 128){
-        window.alert("You need to provide a valid answer! Please try again.");
-        generatePassword();
-      }
-      break;
+      passwordLength = window.prompt("Choose the length of password! enter length betwin 8 and 128");
   }
-  
+ 
   // ask if user would like to add special characters numbers or letters
   var promptChar = window.confirm("Would you like to add any special characters to your password such as " + specialCharacters + " symbols Enter 'OK' or 'Cancel'");
   var promptNumb = window.confirm("Would you like to add any number to your password such as " + numbersString +" numbers Enter 'OK' or 'Cancel'");
