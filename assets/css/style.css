@@ -4,10 +4,14 @@
   box-sizing: border-box;
 }
 
+/* adding flex property to wrapper*/
 html,
 body,
 .wrapper {
-  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
   margin: 0;
   padding: 0;
 }
@@ -31,6 +35,9 @@ header {
 }
 
 .card {
+  display: flex;
+  justify-content:center;
+  flex-wrap: wrap;
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
   border-width: 1px;
@@ -51,6 +58,7 @@ header {
 }
 
 .card-body {
+  width: 500px;
   min-height: 100px;
 }
 
@@ -93,9 +101,6 @@ button[disabled] {
   background: #c0c7cf;
 }
 
-.float-right {
-  float: right;
-}
 
 #password {
   -webkit-appearance: none;
