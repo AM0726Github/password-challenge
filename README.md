@@ -21,7 +21,7 @@ The password can include special characters(https://owasp.org/www-community/pass
 
 ## Screenshot of Web page
 
-![Web page](./assets/images/screenshoot.jpg)
+![Web page](./assets/images/screenshoot.JPG)
 
 ## References and tutorials utilized
 
